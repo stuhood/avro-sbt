@@ -30,7 +30,7 @@ How To Use
     override def avroProtocols = Some("src" / "main" / "avro" / "happy-puppy-protocol.avpr")
     override def avroSchemas = Some("src" / "main" / "avro" / "shower-magic-schema.avpr")
     
-*Third*, and only if you're feeling picky, let it know where you want your
+**Third**, and only if you're feeling picky, let it know where you want your
 new classes put:
     
     override def avroOutputPath = "src" / "main" / "generated"
@@ -38,7 +38,7 @@ new classes put:
 (It defaults to `src/main/java`, which will probably work just fine for you.)
 
 
-*Finally*, compile your project. avro-sbt will generate fresh source files for
+**Finally**, compile your project. avro-sbt will generate fresh source files for
 your schemas and protocols before it compiles things. It should *just work*.
 
 
