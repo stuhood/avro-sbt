@@ -28,4 +28,11 @@ trait AvroCompiler extends DefaultProject {
   lazy val generateAvro = generateAvroAction
   
   override def compileAction = super.compileAction dependsOn(generateAvro)
+  
+  def cleanAvroAction = task {
+    FileUtilities.clean(avroOutputPath :: Nil, false, log)
+    None
+  } describedAs("Deletes the Avro output directory.")
+  
+  lazy val cleanAvro = cleanAvroAction
 }

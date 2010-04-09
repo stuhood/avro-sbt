@@ -37,9 +37,16 @@ new classes put:
 
 (It defaults to `src/main/java`, which will probably work just fine for you.)
 
-
 **Finally**, compile your project. avro-sbt will generate fresh source files for
 your schemas and protocols before it compiles things. It should *just work*.
+
+Oh, and if you want Avro to clean the generated Java sources when it cleans your
+compiled `.class` files, do this:
+    
+    override def cleanAction = super.cleanAction dependsOn(cleanAvro)
+
+But please only do this if `avroOutputPath` doesn't have anything you would
+miss. Because `clean-avro` will nuke it.
 
 
 License
