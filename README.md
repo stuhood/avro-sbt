@@ -25,10 +25,12 @@ How To Use
       val avroSBT = "com.codahale" % "avro-sbt" % "0.1.0"
     }
 
-**Second**, point it towards your Avro schemas and/or protocols:
+**Second**, put your Avro protocol files (`*.avpr`) and schema files (`*.avsc`)
+into `src/main/avro`. If you want to put them somewhere else, be sure to let
+avro-sbt know:
     
-    override def avroProtocols = Some("src" / "main" / "avro" / "happy-puppy-protocol.avpr")
-    override def avroSchemas = Some("src" / "main" / "avro" / "shower-magic-schema.avpr")
+    override def avroProtocols = "src" / "main" / "my-special-avro" ** "*.avro-protocol"
+    override def avroSchemas = "src" / "main" / "my-special-avro" ** "*.avro-schema"
     
 **Third**, and only if you're feeling picky, let it know where you want your
 new classes put:
